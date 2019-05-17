@@ -6,67 +6,66 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="dist/css/estilos.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-  <title>Document</title>
+  <title>Platzi Video</title>
 </head>
 <body>
   <section class="home">
     <div class="home-sidebar">
       <figure class="logo">
-        <img width="200" src="images/platzi-video.png" alt="">
       </figure>
       <div class="sidebar-playlist">
         <h2 >Mi Playlist</h2>
         <span class="btn">Escuchar Playlist</span>
         <div class="sidebar-playlist-items">
-          <ol>
+          <ol class="myPlaylist">
             <li>
-              <a class="playlist-item" href="">
-                <p>Música de momento</p>
+              <a class="playlist-item" href="#">
+                <span>Música de momento</span>
               </a>
             </li>
             <li>
-              <a class="playlist-item" href="">
-                <p>FSc</p>
+              <a class="playlist-item" href="#">
+                <span>FSc</span>
               </a>
             </li>
             <li>
-              <a class="playlist-item" href="">
-                <p>Future House</p>
+              <a class="playlist-item" href="#">
+                <span>Future House</span>
               </a>
             </li>
             <li>
-              <a class="playlist-item" href="">
-                <p>Música de momento</p>
+              <a class="playlist-item" href="#">
+                <span>Música de momento</span>
               </a>
             </li>
             <li>
-              <a class="playlist-item" href="">
-                <p>FSc</p>
+              <a class="playlist-item" href="#">
+                <span>FSc</span>
               </a>
             </li>
             <li>
-              <a class="playlist-item" href="">
-                <p>Future House</p>
+              <a class="playlist-item" href="#">
+                <span>Future House</span>
               </a>
             </li>
             <li>
-              <a class="playlist-item" href="">
-                <p>Música de momento</p>
+              <a class="playlist-item" href="#">
+                <span>Música de momento</span>
               </a>
             </li>
             <li>
-              <a class="playlist-item" href="">
-                <p>FSc</p>
+              <a class="playlist-item" href="#">
+                <span>FSc</span>
               </a>
             </li>
             <li>
-              <a class="playlist-item" href="">
-                <p>Future House</p>
+              <a class="playlist-item" href="#">
+                <span>Future House</span>
               </a>
             </li>
             <li>
-              <a class="playlist-item" href="">
-                <p>Música de momento</p>
+              <a class="playlist-item" href="#">
+                <span>Música de momento</span>
               </a>
             </li>
           </ol>
@@ -96,8 +95,8 @@
             </li>
             <li>
               <a href="">
-                <img class="playlist-friend-image" width="100" src="images/piece-of-your-heart.png" alt="">
-                <span class="playlist-friend-name">Meduza</span>
+                <img class="playlist-friend-image" width="100" src="images/tchami.png" alt="">
+                <span class="playlist-friend-name">Tchami</span>
               </a>
             </li>
           </ul>
@@ -115,8 +114,20 @@
         </div>
       </div>
       <div class="primary-list">
+        <p>
+          <span>
+            <label for="nombre" class="radio-label">Nombre</label>
+            <input type="radio" id="nombre" name="filtro" class="radio">
+          </span>
+          <span>
+            <label for="tipo" class="radio-label">Tipo</label>
+            <input id="tipo" type="radio" name="filtro" class="radio">
+          </span>
+        </p>
         <p class="primary-list-subtitle">Lo mejor de la semana</p>
         <h2 class="primary-list-title">Destacados</h2>
+        <label for="destacados" class="checkbox-label">Ocultar</label>
+        <input type="checkbox" id="destacados" class="checkbox">
         <div class="primary-list-itemContainer">
           <div class="primary-list-item">
             <figure>

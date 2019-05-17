@@ -1,6 +1,8 @@
 :root {
   --lightColor: white;
   --darkColor: #151B31;
+  --redPlatziVideo: #FF0D0F;
+  --gradientPlatziVideo: #FE6196;
   --button: {
     border: 1px solid var(--lightColor);
     border-radius: 5px;
@@ -18,20 +20,36 @@
   @apply --button;
 }
 
+@custom-selector :--checkeable .checkbox-label, .radio-label;
+@custom-selector :--hightLight :hover, :active;
+
+:--checkeable {
+  cursor: pointer;
+  user-select: none;
+  padding: 3px 7px;
+  border: 1px solid var(--redPlatziVideo);
+  border-bottom: 3px solid var(--redPlatziVideo);
+  color: gray(100);
+  font-size: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+:--checkeable:--hightLight 
+{
+  background-color: var(--redPlatziVideo);
+  color: var(--lightColor);
+}
+
+.checkbox:checked + .primary-list-itemContainer {
+  display: none;
+}
+
 body
 {
   margin: 0;
   font-family: 'Open Sans', system-ui;
-}
-
-.logo
-{
-  margin: 0;
-}
-
-.logo img
-{
-  width: calc(100% - 10%);
 }
 
 .home 
@@ -41,23 +59,49 @@ body
   grid-template: 80% 20% / 1fr 3fr;
   grid-template-areas: "sidebar primary"
                        "sidebar featuring";
-}
-
-.home-sidebar
-{
-  padding: 1em;
-  display: grid;
-  grid-template-rows: 10vh 30vh 60vh;
-  background: var(--darkColor);
-  color: white;
-  grid-area: sidebar;
-}
-
-ol li a
-{
-  list-style: none;
-  color: white;
-  text-decoration: none;
+  & .home-sidebar {
+    padding: 1em;
+    display: grid;
+    grid-template-rows: 10vh 40vh 50vh;
+    background: var(--darkColor);
+    color: white;
+    grid-area: sidebar;
+    & h2 {
+      margin-top: .5em;
+      font-size: 1.1em;
+    }
+    & .sidebar-playlist-friend {
+      overflow: auto;
+    }
+  }
+  & .logo {
+    margin: 0;
+    height: 40px;
+    background-image: image-set(url('../../images/platzi-video.png') 1x);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  & .sidebar-playlist {
+    overflow: auto;
+  }
+  & .myPlaylist {
+    & li {
+      margin: .5em 0;
+    }
+    & a {
+      list-style: none;
+      color: white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    & :any-link:hover {
+      color: var(--gradientPlatziVideo);
+      transform: scale(1.1);
+    }
+  }
 }
 
 ul li a
@@ -67,25 +111,9 @@ ul li a
   text-decoration: none;
 }
 
-.playlist-item:hover
-{
-  text-decoration: underline;
-}
-
-.sidebar-playlist
-{
-  overflow: auto;
-}
-
-.home-sidebar h2
-{
-  margin-top: .5em;
-  font-size: 1.1em;
-}
-
 .sidebar-playlist-friend 
 {
-  overflow: auto;
+  
 }
 
 .sidebar-playlist-friend ul
@@ -148,21 +176,13 @@ ul li a
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 1em 0;
-}
-
-form
-{
-  margin: auto 1em;
-}
-
-input
-{
-  box-sizing: border-box;
+  & input {
+    box-sizing: border-box;
   border-style: hidden;
   background-color: #F2F2F2;
   border-radius: 10px;
   height: 35px;
-  width: 80%;
+  width: 90%;
   padding-left: 1em; 
   background-image: url('../images/search.svg');
   background-size: 15px;
@@ -170,6 +190,12 @@ input
   background-position-y: center;
   background-position-x: 95%;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+  }
+}
+
+form
+{
+  margin: auto 1em;
 }
 
 .top-user
@@ -262,7 +288,7 @@ input
   grid-area: featuring;
   display: flex;
   align-items: center;
-  background: linear-gradient(to left, #FE6196, #FF0D0F);
+  background: linear-gradient(to left, var(--gradientPlatziVideo), var(--redPlatziVideo));
 }
 
 .home-featuring img
@@ -297,15 +323,11 @@ input
   .home-featuring 
   {
     font-size: 10px;
-    & figure {
-      margin: 0 .5em;
-    }
   }
 }
 
 @media (--extra-small) 
 {
-
   .home-top 
   {
     grid-template-columns: 1fr;
@@ -341,6 +363,17 @@ input
   .top-user span {
     font-size: 14px;
   }
+
+  .home-featuring 
+  {
+    & figure 
+    {
+      margin: 0 1em 0 1.4em;
+    }
+    & .featuring-description {
+      font-size: 12px;
+    }
+  }
 }
 
 @media (--small) 
@@ -370,9 +403,10 @@ input
     margin-right: 1em;
   }
 
-  input 
-  {
-    width: 100%;
+  .home-top {
+    & input {
+      width: 100%;
+    }
   }
 
   .primary-list 
@@ -391,7 +425,7 @@ input
     bottom: 0;
     left: 0;
     right: 0;
-    height: 150px;
+    height: 120px;
   }
   .featuring-description
   {
@@ -419,7 +453,7 @@ input
   {
     & ol 
     {
-      padding: .1em 0 0 1.1em;
+      padding: .1em 0 0 1.6em;
       font-size: 13px;
     }
   }
