@@ -1,6 +1,10 @@
 module.exports = {
   plugins: [
-    require('postcss-import'),
+    require('postcss-import')({
+      plugins: [
+        require('stylelint')
+      ]
+    }),
     require('postcss-font-magician')({
       variants: {
         'Open Sans': {
@@ -18,6 +22,8 @@ module.exports = {
         customProperties: false,
         calc: false,
       }
-    })
+    }),
+    require('css-mqpacker'),
+    require('cssnano')
   ]
 }
