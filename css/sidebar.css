@@ -1,10 +1,12 @@
 .home-sidebar {
   padding: 1em;
   display: grid;
-  grid-template-rows: 10vh 40vh 50vh;
+  grid-template-rows: auto 1fr 1fr;
   background: var(--darkColor);
   color: white;
   grid-area: sidebar;
+  height: 100vh;
+  box-sizing: border-box;
   & h2 {
     display: inline-block;
     margin-top: .5em;

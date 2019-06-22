@@ -11,7 +11,7 @@
   & .home-top {
     grid-area: top;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     padding: 1em 0;
     & form {
       margin: auto 1em;
@@ -25,9 +25,9 @@
       background-color: #F2F2F2;
       border-radius: 10px;
       height: 35px;
-      width: 90%;
-      padding-left: 1em; 
-      background-image: url('../images/search.svg');
+      width: 95%;
+      padding: 0 1.5em 0 1em;
+      background-image: url('../../images/search.svg');
       background-size: 15px;
       background-repeat: no-repeat;
       background-position-y: center;
@@ -41,7 +41,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      margin-right: 4em;
+      margin-right: 1em;
       & img {
         width: 50px;
         border-radius: 50%;
